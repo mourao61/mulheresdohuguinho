@@ -1,0 +1,309 @@
+:root {
+    --primary-red: #ff1b6b;
+    --secondary-red: #e0115f;
+    --dark-red: #8b0000;
+    --bg-gradient: linear-gradient(135deg, #2c000e 0%, #4a001f 50%, #1a0006 100%);
+    --card-bg: rgba(255, 255, 255, 0.08);
+    --gold: #ffd700;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Montserrat', sans-serif;
+    background: var(--bg-gradient);
+    color: #fff;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow-x: hidden;
+    position: relative;
+}
+
+/* Fundo com corações flutuantes */
+.floating-hearts {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    z-index: 1;
+    pointer-events: none;
+}
+
+.heart-particle {
+    position: absolute;
+    bottom: -20px;
+    background-color: rgba(255, 27, 107, 0.6);
+    display: inline-block;
+    transform: rotate(45deg);
+    animation: floatUp 6s linear infinite;
+}
+
+.heart-particle::before,
+.heart-particle::after {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color: inherit;
+    border-radius: 50%;
+}
+
+.heart-particle::before {
+    top: -50%;
+    left: 0;
+}
+
+.heart-particle::after {
+    top: 0;
+    left: -50%;
+}
+
+@keyframes floatUp {
+    0% {
+        transform: translateY(0) rotate(45deg) scale(0.6);
+        opacity: 0;
+    }
+    20% {
+        opacity: 0.8;
+    }
+    100% {
+        transform: translateY(-100vh) rotate(45deg) scale(1.2);
+        opacity: 0;
+    }
+}
+
+/* Container Principal */
+.container {
+    position: relative;
+    z-index: 2;
+    width: 100%;
+    max-width: 600px;
+    padding: 20px;
+    text-align: center;
+}
+
+/* Cabeçalho */
+header {
+    margin-bottom: 30px;
+}
+
+.badge {
+    display: inline-block;
+    background: linear-gradient(90deg, #ff416c, #ff4b2b);
+    color: white;
+    padding: 6px 16px;
+    border-radius: 20px;
+    font-size: 0.85rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 15px;
+    box-shadow: 0 4px 15px rgba(255, 65, 108, 0.4);
+    animation: pulseBadge 2s infinite;
+}
+
+@keyframes pulseBadge {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.05); }
+    100% { transform: scale(1); }
+}
+
+h1 {
+    font-family: 'Pacifico', cursive;
+    font-size: 3rem;
+    color: #ff6584;
+    margin-bottom: 10px;
+    text-shadow: 0 0 20px rgba(255, 101, 132, 0.6);
+}
+
+header p {
+    font-size: 1rem;
+    color: #f0d5df;
+}
+
+/* Cartão do Sorteio */
+.roulette-card {
+    background: var(--card-bg);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 2px solid rgba(255, 27, 107, 0.3);
+    border-radius: 24px;
+    padding: 40px 30px;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.5), inset 0 0 20px rgba(255, 27, 107, 0.1);
+    position: relative;
+    overflow: hidden;
+}
+
+.card-glow {
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle, rgba(255,27,107,0.15) 0%, transparent 70%);
+    pointer-events: none;
+}
+
+/* Visor de Nomes */
+.name-display-container {
+    background: rgba(0, 0, 0, 0.3);
+    border: 2px dashed rgba(255, 27, 107, 0.5);
+    border-radius: 16px;
+    padding: 25px;
+    margin-bottom: 30px;
+    min-height: 110px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: inset 0 4px 10px rgba(0, 0, 0, 0.5);
+}
+
+.name-display {
+    font-size: 2rem;
+    font-weight: 700;
+    color: #fff;
+    text-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+    transition: all 0.1s ease;
+}
+
+.name-display.highlight {
+    color: var(--gold);
+    transform: scale(1.1);
+    text-shadow: 0 0 20px var(--gold);
+}
+
+/* Botão de Sortear */
+.love-btn {
+    background: linear-gradient(135deg, #ff1b6b 0%, #ff4b2b 100%);
+    color: white;
+    border: none;
+    padding: 18px 35px;
+    font-size: 1.2rem;
+    font-weight: 700;
+    border-radius: 50px;
+    cursor: pointer;
+    box-shadow: 0 8px 25px rgba(255, 27, 107, 0.5);
+    transition: all 0.3s ease;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    width: 100%;
+    max-width: 350px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.love-btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 12px 30px rgba(255, 27, 107, 0.8);
+    background: linear-gradient(135deg, #ff2c78, #ff5e3f);
+}
+
+.love-btn:active {
+    transform: translateY(1px);
+}
+
+.love-btn:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+    transform: none;
+}
+
+/* Rodapé */
+footer {
+    margin-top: 30px;
+    font-size: 0.85rem;
+    color: rgba(255, 255, 255, 0.5);
+}
+
+/* Modal de Celebração */
+.modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.8);
+    backdrop-filter: blur(8px);
+    z-index: 10;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 1;
+    transition: opacity 0.3s ease;
+}
+
+.modal.hidden {
+    opacity: 0;
+    pointer-events: none;
+}
+
+.modal-content {
+    background: linear-gradient(145deg, #380214, #1f000b);
+    border: 3px solid var(--primary-red);
+    border-radius: 24px;
+    padding: 40px;
+    text-align: center;
+    max-width: 450px;
+    width: 90%;
+    box-shadow: 0 20px 50px rgba(255, 27, 107, 0.5);
+    transform: scale(1);
+    animation: popIn 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+@keyframes popIn {
+    0% { transform: scale(0.7); opacity: 0; }
+    100% { transform: scale(1); opacity: 1; }
+}
+
+.modal-hearts {
+    font-size: 2rem;
+    margin-bottom: 10px;
+}
+
+.modal-content h2 {
+    font-size: 1.5rem;
+    color: #ff8fa3;
+    margin-bottom: 15px;
+}
+
+.winner-name {
+    font-family: 'Pacifico', cursive;
+    font-size: 2.8rem;
+    color: var(--gold);
+    margin: 15px 0;
+    text-shadow: 0 0 15px rgba(255, 215, 0, 0.6);
+}
+
+.match-msg {
+    font-size: 1.1rem;
+    color: #fff;
+    margin-bottom: 30px;
+}
+
+.close-btn {
+    background: #fff;
+    color: var(--secondary-red);
+    border: none;
+    padding: 12px 25px;
+    font-size: 1rem;
+    font-weight: 700;
+    border-radius: 30px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+}
+
+.close-btn:hover {
+    background: #ffe3eb;
+    transform: scale(1.05);
+}

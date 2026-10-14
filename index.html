@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mulheres do Huguinho - Vai Dar Namoro ❤️</title>
+    <!-- Google Fonts para um visual romântico e atraente -->
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;900&family=Pacifico&display=swap" rel="stylesheet">
+    <!-- Arquivo CSS separado -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Corações flutuantes decorativos de fundo -->
+    <div class="floating-hearts" id="floatingHearts"></div>
+
+    <div class="container">
+        <!-- Cabeçalho -->
+        <header>
+            <div class="badge">🔥 Edição Especial Vai Dar Namoro 🔥</div>
+            <h1>Mulheres do Huguinho</h1>
+            <p>Quem será a sortuda da semana para conquistar o coração do Huguinho?</p>
+        </header>
+
+        <!-- Área Principal de Sorteio -->
+        <main class="roulette-card">
+            <div class="card-glow"></div>
+            
+            <div class="name-display-container">
+                <div id="nameDisplay" class="name-display">Pronto para o amor?</div>
+            </div>
+
+            <button id="sortearBtn" class="love-btn">
+                <span class="btn-icon">💖</span> Sortear mulher da semana
+            </button>
+        </main>
+
+        <!-- Rodapé -->
+        <footer>
+            <p>Feito com muito amor e paixão para o Huguinho &copy; 2026</p>
+        </footer>
+    </div>
+
+    <!-- Tela de Celebração (Modal de Sucesso) -->
+    <div id="celebrationModal" class="modal hidden">
+        <div class="modal-content">
+            <div class="modal-hearts">🎉💘🎉</div>
+            <h2>A Escolhida é...</h2>
+            <div id="winnerName" class="winner-name">Nome da Sorte</div>
+            <p class="match-msg">Deu Match! O amor está no ar! 🌹</p>
+            <button id="closeModalBtn" class="close-btn">Sortear Novamente</button>
+        </div>
+    </div>
+
+    <!-- Biblioteca de Confetes para a comemoração -->
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+    <!-- Arquivo JS separado -->
+    <script src="script.js"></script>
+</body>
+</html>
